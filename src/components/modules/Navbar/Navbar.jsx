@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 import items from './items';
 
-import { Header, Navigation } from './Navbar.styled';
+import { Header, Navigation, LinkElem } from './Navbar.styled';
 
 const Navbar = () => {
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
-      <NavLink to={link}>{text}</NavLink>
+      <LinkElem to={link}>{text}</LinkElem>
     </li>
   ));
   return (

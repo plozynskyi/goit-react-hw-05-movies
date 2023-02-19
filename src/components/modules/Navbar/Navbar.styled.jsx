@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 const Header = styled.header`
   border-bottom: 1px;
@@ -14,4 +15,11 @@ const Navigation = styled.ul`
   text-decoration: none;
 `;
 
-export { Header, Navigation };
+const LinkElem = styled(NavLink)`
+  // example style
+  &.active {
+    color: red;
+  }
+`;
+
+export { Header, Navigation, LinkElem };
