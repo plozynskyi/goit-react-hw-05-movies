@@ -1,26 +1,37 @@
 import { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
+
+import Loader from 'components/Loader/Loader';
+import HomeMoviesList from 'components/Movies/HomeMovies';
 
 import { getTrendingMovies } from 'shared/services/movies-api';
 
 const HomePage = () => {
   const [movies, setMovies] = useState();
-  // const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
+        setIsLoading(true);
         const { results } = await getTrendingMovies();
-
+        console.log(results);
         setMovies(results);
       } catch (error) {
-        console.log(error.massage);
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchPost();
+    console.log(movies);
   }, []);
 
-  return <></>;
+  return (
+    <>
+      {Boolean(isLoading) && <Loader />}
+      <HomeMoviesList movies={movies} />
+    </>
+  );
 };
 
 export default HomePage;

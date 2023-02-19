@@ -9,6 +9,6 @@ const instance = axios.create({
 
 export const getTrendingMovies = async () => {
   const { data } = await instance.get('/trending/all/week', {});
-  console.log(data);
+
   return data;
 };
