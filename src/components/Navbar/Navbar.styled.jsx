@@ -19,6 +19,8 @@ const LinkElem = styled(NavLink)`
   // example style
   &.active {
     color: red;
+    font-size: 24px;
+    font-weight: bold;
   }
 `;
 
