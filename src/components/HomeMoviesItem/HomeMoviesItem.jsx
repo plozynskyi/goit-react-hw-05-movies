@@ -1,10 +1,18 @@
+import { Link, useLocation } from 'react-router-dom';
+import { routes } from '../../routes';
 import { MoviesItem, MovieLinkById } from './home-movie-item.styled';
 
-const HomeMoviesItem = ({ or }) => {
+const HomeMoviesItem = ({ title, name, id }) => {
+  const location = useLocation();
+
+  const currentPage =
+    location.pathname === routes.HOME ? routes.MOVIES : location.pathname;
   return (
     <>
       <MoviesItem>
-        <MovieLinkById>{or}</MovieLinkById>
+        <Link to={`${currentPage}/${id}`} state={{ from: location }}>
+          {title || name}
+        </Link>
       </MoviesItem>
     </>
   );

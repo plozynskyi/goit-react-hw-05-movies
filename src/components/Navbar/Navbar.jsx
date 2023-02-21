@@ -1,5 +1,3 @@
-// import { NavLink } from 'react-router-dom';
-
 import items from './items';
 
 import { Header, Navigation, LinkElem } from './Navbar.styled';

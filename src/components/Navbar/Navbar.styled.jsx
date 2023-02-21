@@ -16,10 +16,10 @@ const Navigation = styled.ul`
 `;
 
 const LinkElem = styled(NavLink)`
-  // example style
+  font-size: 24px;
   &.active {
     color: red;
-    font-size: 24px;
+
     font-weight: bold;
   }
 `;

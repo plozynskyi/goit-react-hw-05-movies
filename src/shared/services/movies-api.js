@@ -12,3 +12,9 @@ export const getTrendingMovies = async () => {
 
   return data;
 };
+
+export const getMovieById = async id => {
+  const { data } = await instance.get(`/movie/${id}`, {});
+
+  return data;
+};
