@@ -7,14 +7,14 @@ const ButtonMain = styled.button`
   border: 2px solid #000;
   border-radius: 5px;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-
   cursor: pointer;
   width: 100px;
   margin-bottom: 10px;
   font-size: 14px;
+  font-weight: bold;
   :hover {
-    color: red;
-    border: 2px solid red;
+    color: coral;
+    border: 2px solid coral;
   }
 `;
 

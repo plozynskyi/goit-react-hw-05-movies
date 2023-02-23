@@ -20,6 +20,9 @@ const LinkElem = styled(NavLink)`
     text-decoration: underline;
     font-weight: bold;
   }
+  &:hover {
+    color: coral;
+  }
 `;
 
 export { Header, Navigation, LinkElem };

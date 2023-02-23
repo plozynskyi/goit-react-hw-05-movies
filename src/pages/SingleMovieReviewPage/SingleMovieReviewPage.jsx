@@ -14,8 +14,8 @@ const SingleMovieReviewPage = () => {
   useEffect(() => {
     const fetchCast = async () => {
       try {
+        setIsLoading(true);
         const { results } = await getMovieByNameReviews(movieId);
-        console.log(results);
         if (!results.length) {
           setNoResults(true);
         }
