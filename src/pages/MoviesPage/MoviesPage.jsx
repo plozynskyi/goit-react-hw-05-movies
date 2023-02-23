@@ -29,14 +29,13 @@ const MoviesPage = () => {
         setMovies(results);
       } catch (response) {
         setError(response.data.message);
-        console.log(error.message);
       } finally {
         setIsLoading(false);
       }
     };
 
     getMoviesByQuery();
-  }, [error.message, query]);
+  }, [query]);
 
   const handleFormSubmit = value => {
     setSearchParams({ query: value });
@@ -48,9 +47,7 @@ const MoviesPage = () => {
         <SearchForm handleFormSubmit={handleFormSubmit} />
         {isLoading && <Loader />}
         {error && <p>Oops. Something goes wrong. Please try again.</p>}
-        {noResults && (
-          <p>There is no Results. Please check query parameters. </p>
-        )}
+        {!movies && <p>There is no Results. Please check query parameters. </p>}
         {!noResults && <HomeMoviesList movies={movies} />}
       </Section>
     </>

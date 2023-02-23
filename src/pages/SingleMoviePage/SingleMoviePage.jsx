@@ -54,7 +54,7 @@ const MovieDetails = () => {
           Go back
         </Button>
         {error && <p>Oops. Something goes wrong. Please try again.</p>}
-        {noResults && <p>There is no information. Please try again.</p>}
+        {!noResults && <p>There is no information. Please try again.</p>}
         <SingleMoviePage movie={movie} />
         <ul>
           <li>
