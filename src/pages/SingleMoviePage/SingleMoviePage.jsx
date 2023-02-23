@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import SingleMoviePage from 'components/MovieDetails/MovieDetails';
-import Loader from 'components/Loader/Loader';
+import Loader from 'shared/Loader/Loader';
 
 import { getMovieById } from 'shared/services/movies-api';
 import Section from 'components/Section/Section';
@@ -58,17 +58,16 @@ const MovieDetails = () => {
         <SingleMoviePage movie={movie} />
         <ul>
           <li>
-            <Link to="Cast" state={{ from }}>
+            <Link to="cast" state={{ from }}>
               Cast
             </Link>
           </li>
           <li>
-            <Link to="Reviews" state={{ from }}>
-              REVIEWS
+            <Link to="reviews" state={{ from }}>
+              Reviews
             </Link>
           </li>
         </ul>
-
         <Outlet />
       </Section>
     </>

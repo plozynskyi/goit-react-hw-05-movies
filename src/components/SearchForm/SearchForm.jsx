@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import {
-  FormBox,
   SearchFormBox,
   SearchFormButton,
   SearchFormInput,
@@ -21,7 +20,7 @@ const SearchForm = ({ handleFormSubmit }) => {
         value={query}
         onChange={event => setQuery(event.target.value)}
         type="text"
-        placeholder="Enter name of cocktail..."
+        placeholder="Enter name of movie..."
       />
       <SearchFormButton type="submit"></SearchFormButton>
     </SearchFormBox>

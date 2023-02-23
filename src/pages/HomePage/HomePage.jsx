@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import Loader from 'components/Loader/Loader';
+import Loader from 'shared/Loader/Loader';
 import HomeMoviesList from 'components/HomeMoviesList/HomeMoviesList';
 
 import { getTrendingMovies } from 'shared/services/movies-api';

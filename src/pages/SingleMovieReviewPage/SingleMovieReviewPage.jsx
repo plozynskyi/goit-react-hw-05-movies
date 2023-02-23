@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Loader from 'components/Loader/Loader';
+import Loader from 'shared/Loader/Loader';
 import { getMovieByNameReviews } from 'shared/services/movies-api';
 
 const SingleMovieReviewPage = () => {
@@ -30,7 +30,7 @@ const SingleMovieReviewPage = () => {
 
     fetchCast();
   }, [movieId]);
-
+  console.log(reviewMovie);
   const elements = reviewMovie.map(({ id, author, content }) => (
     <ul>
       <li key={id}>

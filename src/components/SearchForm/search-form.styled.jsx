@@ -6,7 +6,7 @@ const SearchFormBox = styled.form`
   width: 100%;
   max-width: 600px;
   background-color: #fff;
-  border: 2px solid #11beb6c5;
+  border: 2px solid coral;
   border-radius: 3px;
   overflow: hidden;
 `;

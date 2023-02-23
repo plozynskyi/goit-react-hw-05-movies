@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Loader from 'components/Loader/Loader';
+import Loader from 'shared/Loader/Loader';
 import { getMovieByNameCast } from 'shared/services/movies-api';
 
 const SingleMovieCastPage = () => {
@@ -15,7 +15,7 @@ const SingleMovieCastPage = () => {
     const fetchCast = async () => {
       try {
         const { cast } = await getMovieByNameCast(movieId);
-
+        console.log(cast);
         if (!cast.length) {
           setNoResults(true);
         }
@@ -31,8 +31,8 @@ const SingleMovieCastPage = () => {
     fetchCast();
   }, [movieId]);
 
-  const elements = castMovie.map(({ id, name, profile_path }) => (
-    <li key={id}>
+  const elements = castMovie.map(({ cast_id, name, profile_path }) => (
+    <li key={cast_id}>
       <p>Name: {name}.</p>
       <img
         src={`https://image.tmdb.org/t/p/original/${profile_path}`}

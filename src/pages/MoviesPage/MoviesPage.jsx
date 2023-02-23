@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import Loader from 'components/Loader/Loader';
+import Loader from 'shared/Loader/Loader';
 import Section from 'components/Section/Section';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { getMovieByName } from 'shared/services/movies-api';
