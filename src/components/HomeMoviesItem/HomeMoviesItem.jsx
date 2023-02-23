@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../routes';
-import { MoviesItem, MovieLinkById } from './home-movie-item.styled';
+import { MoviesItem } from './home-movie-item.styled';
 
 const HomeMoviesItem = ({ title, name, id }) => {
   const location = useLocation();
