@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 const SearchFormBox = styled.form`
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
   width: 100%;
   max-width: 600px;
   background-color: #fff;

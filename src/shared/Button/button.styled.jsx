@@ -9,7 +9,6 @@ const ButtonMain = styled.button`
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   cursor: pointer;
   width: 100px;
-  margin-bottom: 10px;
   font-size: 14px;
   font-weight: bold;
   :hover {

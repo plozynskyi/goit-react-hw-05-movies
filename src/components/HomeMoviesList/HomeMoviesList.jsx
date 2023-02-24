@@ -7,8 +7,14 @@ import { HomeMovies } from './home-movies.styled';
 const HomeMoviesList = ({ movies }) => {
   return (
     <HomeMovies>
-      {movies.map(({ id, title, name }) => (
-        <HomeMoviesItem key={id} title={title} name={name} id={id} />
+      {movies.map(({ id, title, name, poster_path }) => (
+        <HomeMoviesItem
+          key={id}
+          title={title}
+          name={name}
+          id={id}
+          poster={poster_path}
+        />
       ))}
     </HomeMovies>
   );

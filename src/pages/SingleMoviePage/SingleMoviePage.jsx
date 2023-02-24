@@ -8,9 +8,10 @@ import {
 } from 'react-router-dom';
 
 import SingleMoviePage from 'components/MovieDetails/MovieDetails';
+import { SingleMovieBox } from './single-movie-page.styled';
 import Loader from 'shared/Loader/Loader';
 
-import { getMovieById } from 'shared/services/movies-api';
+import { getMovieById, getMovieTrailerById } from 'shared/services/movies-api';
 import Section from 'components/Section/Section';
 import Button from 'shared/Button/Button';
 
@@ -44,11 +45,24 @@ const MovieDetails = () => {
     getMovie();
   }, [movieId]);
 
+  // useEffect(() => {
+  //   const getMovie = async () => {
+  //     try {
+  //       const { results } = await getMovieTrailerById(movieId);
+  //       console.log(results);
+  //     } catch (response) {
+  //       console.log(response.data.message);
+  //     } finally {
+  //     }
+  //   };
+  //   getMovie();
+  // }, [movieId]);
+
   const goBack = useCallback(() => navigate(from), [from, navigate]);
 
   return (
-    <>
-      <Section>
+    <Section>
+      <SingleMovieBox>
         {Boolean(isLoading) && <Loader />}
         <Button onClick={goBack} type="button">
           Go back
@@ -69,8 +83,8 @@ const MovieDetails = () => {
           </li>
         </ul>
         <Outlet />
-      </Section>
-    </>
+      </SingleMovieBox>
+    </Section>
   );
 };
 
