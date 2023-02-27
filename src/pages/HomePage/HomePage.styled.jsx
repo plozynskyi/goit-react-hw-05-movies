@@ -7,4 +7,8 @@ const TrendsMoviesBox = styled.div`
   gap: 15px;
 `;
 
-export { TrendsMoviesBox };
+const HomeTitle = styled.h1`
+  margin: 0 0 5px;
+`;
+
+export { TrendsMoviesBox, HomeTitle };

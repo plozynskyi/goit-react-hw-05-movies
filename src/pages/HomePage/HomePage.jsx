@@ -6,7 +6,7 @@ import HomeMoviesList from 'components/HomeMoviesList/HomeMoviesList';
 import Button from 'shared/Button/Button';
 
 import { getTrendingMovies } from 'shared/services/movies-api';
-import { TrendsMoviesBox } from './HomePage.styled';
+import { TrendsMoviesBox, HomeTitle } from './HomePage.styled';
 
 const HomePage = () => {
   const [movies, setMovies] = useState();
@@ -50,6 +50,7 @@ const HomePage = () => {
   return (
     <Section>
       <TrendsMoviesBox>
+        <HomeTitle>Trending today</HomeTitle>
         {isLoading && <Loader />}
         {error && <p>Oops. Something goes wrong. Please try refresh page.</p>}
         {noResults && (
