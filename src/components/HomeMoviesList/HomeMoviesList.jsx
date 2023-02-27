@@ -24,7 +24,6 @@ export default HomeMoviesList;
 
 HomeMoviesList.defaultProps = {
   movies: [],
-  poster: '../HomeMoviesItem/no-image.jpg',
 };
 
 HomeMoviesList.propTypes = {

@@ -11,6 +11,8 @@ const Navigation = styled.ul`
   list-style: none;
 `;
 
+const LinkItem = styled.li``;
+
 const LinkElem = styled(NavLink)`
   font-weight: bold;
   text-decoration: none;
@@ -25,4 +27,4 @@ const LinkElem = styled(NavLink)`
   }
 `;
 
-export { Header, Navigation, LinkElem };
+export { Header, Navigation, LinkItem, LinkElem };

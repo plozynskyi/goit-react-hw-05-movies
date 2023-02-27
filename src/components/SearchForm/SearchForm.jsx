@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 
 import {
@@ -28,3 +30,7 @@ const SearchForm = ({ handleFormSubmit }) => {
 };
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+  handleFormSubmit: PropTypes.func.isRequired,
+};
