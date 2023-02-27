@@ -16,7 +16,7 @@ const SingleMovieReviewPage = lazy(() =>
 );
 
 const UserRoutes = () => {
-  const { HOME, MOVIES, MOVIESDETAILS, CAST, REVIEWS } = routes;
+  const { MOVIES, MOVIESDETAILS, CAST, REVIEWS } = routes;
 
   return (
     <Suspense fallback={<p>...loading</p>}>
