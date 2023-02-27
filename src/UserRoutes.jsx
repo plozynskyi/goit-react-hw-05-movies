@@ -1,4 +1,4 @@
-import { Navigate, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 import { routes } from 'routes';
@@ -21,13 +21,13 @@ const UserRoutes = () => {
   return (
     <Suspense fallback={<p>...loading</p>}>
       <Routes>
-        <Route index path={HOME} element={<HomePage />} />
+        <Route path={HOME} element={<HomePage />} />
         <Route path={MOVIES} element={<MoviesPage />} />
         <Route path={MOVIESDETAILS} element={<MovieDetails />}>
           <Route path={CAST} element={<SingleMovieCastPage />} />
           <Route path={REVIEWS} element={<SingleMovieReviewPage />} />
         </Route>
-        <Route path="*" element={<Navigate to={HomePage} replace />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </Suspense>
   );
