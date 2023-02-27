@@ -18,8 +18,8 @@ const SearchForm = ({ handleFormSubmit }) => {
     <SearchFormBox onSubmit={handleSubmit}>
       <SearchFormInput
         value={query}
-        onChange={event => setQuery(event.target.value.trim())}
-        type="text"
+        onChange={event => setQuery(event.target.value)}
+        // type="text"
         placeholder="Enter name of movie..."
       />
       <SearchFormButton type="submit"></SearchFormButton>

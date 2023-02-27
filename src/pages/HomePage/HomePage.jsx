@@ -46,7 +46,7 @@ const HomePage = () => {
     setLoadMoreButton(false);
     setPage(page => page + 1);
   };
-  console.log(movies);
+
   return (
     <Section>
       <TrendsMoviesBox>

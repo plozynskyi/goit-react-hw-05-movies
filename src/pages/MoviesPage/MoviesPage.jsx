@@ -9,6 +9,8 @@ import Button from 'shared/Button/Button';
 import { getMovieByName } from 'shared/services/movies-api';
 import HomeMoviesList from 'components/HomeMoviesList/HomeMoviesList';
 
+import { MoviesBox } from './movie-page.styled';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const MoviesPage = () => {
@@ -29,23 +31,25 @@ const MoviesPage = () => {
       try {
         setIsLoading(true);
         const { results } = await getMovieByName(query, page);
+        if (page === 1) {
+          setNoResults(false);
+          setMovies([...results]);
+        } else {
+          setMovies(prevState => [...prevState, ...results]);
+        }
+
+        if (results.length === 20) {
+          setLoadMoreButton(true);
+        } else setLoadMoreButton(false);
 
         if (!results.length) {
-          setNoResults(true);
           setMovies([]);
+          setNoResults(true);
           setIsLoading(false);
           return toast.warn(
             `No movies for ${query}. Please try something else`
           );
         }
-        if (results.length === 20) {
-          setLoadMoreButton(true);
-        } else {
-          setLoadMoreButton(false);
-        }
-        if (page === 1) {
-          return setMovies([...results]);
-        } else setMovies(prevState => [...prevState, ...results]);
       } catch (response) {
         setError(response.data.message);
       } finally {
@@ -54,10 +58,12 @@ const MoviesPage = () => {
     };
 
     getMoviesByQuery();
-  }, [page, query]);
+  }, [page, query, noResults]);
 
   const handleFormSubmit = value => {
     setSearchParams({ query: value });
+    setMovies([]);
+    setPage(1);
   };
 
   const loadMore = () => {
@@ -67,15 +73,18 @@ const MoviesPage = () => {
 
   return (
     <Section>
-      <SearchForm handleFormSubmit={handleFormSubmit} />
-      {isLoading && <Loader />}
-      {error && <p>Oops. Something goes wrong. Please try again.</p>}
-      {!noResults && <HomeMoviesList movies={movies} />}
-      {loadMoreButton && (
-        <Button onClick={loadMore} type="button">
-          loadMore
-        </Button>
-      )}
+      <MoviesBox>
+        <SearchForm handleFormSubmit={handleFormSubmit} />
+        {isLoading && <Loader />}
+        {error && <p>Oops. Something goes wrong. Please try again.</p>}
+        {!noResults && <HomeMoviesList movies={movies} />}
+
+        {loadMoreButton && (
+          <Button onClick={loadMore} type="button">
+            loadMore
+          </Button>
+        )}
+      </MoviesBox>
     </Section>
   );
 };

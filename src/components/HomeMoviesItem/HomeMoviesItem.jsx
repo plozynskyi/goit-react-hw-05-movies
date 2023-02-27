@@ -14,7 +14,8 @@ const HomeMoviesItem = ({ title, name, id, poster }) => {
   const currentPage =
     location.pathname === routes.HOME ? routes.MOVIES : location.pathname;
   const imageUrl = 'https://image.tmdb.org/t/p/original/';
-  const defaultPoster = '../../shared/image/no-image.jpg';
+  const defaultPoster =
+    'https://upload.wikimedia.org/wikipedia/commons/f/f9/No-image-available.jpg';
   return (
     <>
       <MoviesItem>
@@ -32,9 +33,7 @@ const HomeMoviesItem = ({ title, name, id, poster }) => {
 
 export default HomeMoviesItem;
 
-HomeMoviesItem.defaultProps = {
-  // poster: '../../shared/image/no-image.jpg',
-};
+HomeMoviesItem.defaultProps = {};
 
 HomeMoviesItem.propTypes = {
   title: PropTypes.string,

@@ -35,14 +35,14 @@ const SearchFormInput = styled.input`
   width: 100%;
   margin-left: 10px;
   font: inherit;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   outline: none;
   padding-left: 4px;
   padding-right: 4px;
   ::placeholder {
     font: inherit;
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
