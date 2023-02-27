@@ -30,7 +30,6 @@ const SingleMovieReviewPage = () => {
 
     fetchCast();
   }, [movieId]);
-  console.log(reviewMovie);
   const elements = reviewMovie.map(({ id, author, content }) => (
     <ul>
       <li key={id}>
