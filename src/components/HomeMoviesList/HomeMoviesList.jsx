@@ -24,6 +24,7 @@ export default HomeMoviesList;
 
 HomeMoviesList.defaultProps = {
   movies: [],
+  poster: '../../shared/image/no-image.jpg',
 };
 
 HomeMoviesList.propTypes = {
@@ -32,7 +33,7 @@ HomeMoviesList.propTypes = {
       title: PropTypes.string,
       name: PropTypes.string,
       id: PropTypes.number.isRequired,
-      poster: PropTypes.string.isRequired,
+      poster: PropTypes.string,
     })
   ),
 };

@@ -29,14 +29,6 @@ const MoviesPage = () => {
       try {
         setIsLoading(true);
         const { results } = await getMovieByName(query, page);
-        console.log(results.length === 20);
-        if (results.length === 20) {
-          setLoadMoreButton(true);
-        }
-
-        if (page === 1) {
-          return setMovies([...results]);
-        } else setMovies(prevState => [...prevState, ...results]);
 
         if (!results.length) {
           setNoResults(true);
@@ -46,6 +38,14 @@ const MoviesPage = () => {
             `No movies for ${query}. Please try something else`
           );
         }
+        if (results.length === 20) {
+          setLoadMoreButton(true);
+        } else {
+          setLoadMoreButton(false);
+        }
+        if (page === 1) {
+          return setMovies([...results]);
+        } else setMovies(prevState => [...prevState, ...results]);
       } catch (response) {
         setError(response.data.message);
       } finally {
@@ -66,19 +66,17 @@ const MoviesPage = () => {
   };
 
   return (
-    <>
-      <Section>
-        <SearchForm handleFormSubmit={handleFormSubmit} />
-        {isLoading && <Loader />}
-        {error && <p>Oops. Something goes wrong. Please try again.</p>}
-        {!noResults && <HomeMoviesList movies={movies} />}
-        {loadMoreButton && (
-          <Button onClick={loadMore} type="button">
-            loadMore
-          </Button>
-        )}
-      </Section>
-    </>
+    <Section>
+      <SearchForm handleFormSubmit={handleFormSubmit} />
+      {isLoading && <Loader />}
+      {error && <p>Oops. Something goes wrong. Please try again.</p>}
+      {!noResults && <HomeMoviesList movies={movies} />}
+      {loadMoreButton && (
+        <Button onClick={loadMore} type="button">
+          loadMore
+        </Button>
+      )}
+    </Section>
   );
 };
 

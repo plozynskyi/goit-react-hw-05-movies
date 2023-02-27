@@ -14,12 +14,15 @@ const HomeMoviesItem = ({ title, name, id, poster }) => {
   const currentPage =
     location.pathname === routes.HOME ? routes.MOVIES : location.pathname;
   const imageUrl = 'https://image.tmdb.org/t/p/original/';
-
+  const defaultPoster = '../../shared/image/no-image.jpg';
   return (
     <>
       <MoviesItem>
         <MovieLink to={`${currentPage}/${id}`} state={{ from: location }}>
-          <MoviePoster src={`${imageUrl}${poster}`} alt={title || name} />
+          <MoviePoster
+            src={poster ? `${imageUrl}${poster}` : defaultPoster}
+            alt={title || name}
+          />
           <MovieTitle>{title || name}</MovieTitle>
         </MovieLink>
       </MoviesItem>
@@ -30,12 +33,12 @@ const HomeMoviesItem = ({ title, name, id, poster }) => {
 export default HomeMoviesItem;
 
 HomeMoviesItem.defaultProps = {
-  poster: '../../shared/image/no-image.jpg',
+  // poster: '../../shared/image/no-image.jpg',
 };
 
 HomeMoviesItem.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.number.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
 };
