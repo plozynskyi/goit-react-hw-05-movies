@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useLocation } from 'react-router-dom';
-import { routes } from '../../routes';
+
 import {
   MovieLink,
   MoviesItem,
@@ -12,17 +12,14 @@ import {
 const HomeMoviesItem = ({ title, name, id, poster }) => {
   const location = useLocation();
   console.log(location);
-  const currentPage =
-    location.pathname === routes.HOME
-      ? routes.MOVIESDETAILS
-      : location.pathname;
+
   const imageUrl = 'https://image.tmdb.org/t/p/original/';
   const defaultPoster =
     'https://upload.wikimedia.org/wikipedia/commons/f/f9/No-image-available.jpg';
   return (
     <>
       <MoviesItem>
-        <MovieLink to={`${currentPage}/${id}`} state={{ from: location }}>
+        <MovieLink to={`/movies/${id}`} state={{ from: location }}>
           <MoviePoster
             src={poster ? `${imageUrl}${poster}` : defaultPoster}
             alt={title || name}
