@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   Wrapper,
   MovieInfoBox,
@@ -40,8 +42,8 @@ const SingleMoviePage = ({ movie }) => {
           {original_title}
         </MovieTitle>
         <p>
-          <MovieInfo>User Score</MovieInfo> - {Number(vote_average).toFixed(2)}{' '}
-          %
+          <MovieInfo>User Score - </MovieInfo>
+          {Number(vote_average).toFixed(2)} %
         </p>
         <p>
           <MovieInfo>Overview:</MovieInfo> {overview}
@@ -61,3 +63,25 @@ const SingleMoviePage = ({ movie }) => {
 };
 
 export default SingleMoviePage;
+
+SingleMoviePage.defaultProps = {
+  movies: [],
+};
+
+SingleMoviePage.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      name: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      poster: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
+      original_title: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
+      vote_average: PropTypes.number,
+      overview: PropTypes.string,
+      homepage: PropTypes.string,
+      status: PropTypes.string,
+    })
+  ),
+};

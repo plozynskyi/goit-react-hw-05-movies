@@ -11,6 +11,8 @@ const ButtonMain = styled.button`
   width: 100px;
   font-size: 14px;
   font-weight: bold;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
     color: coral;
     border: 2px solid coral;

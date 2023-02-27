@@ -25,6 +25,7 @@ const MoviePoster = styled.img`
 
 const MovieTitle = styled.h3`
   text-align: center;
+  color: #000;
   font-weight: bold;
   transition: scale 250ms linear;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);

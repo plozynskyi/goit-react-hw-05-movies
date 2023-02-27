@@ -40,8 +40,3 @@ export const getMovieByName = async (query, page) => {
   });
   return data;
 };
-
-// export const getMovieTrailerById = async id => {
-//   const { data } = await instance.get(`/movie/${id}/videos`, {});
-//   return data;
-// };

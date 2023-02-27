@@ -16,7 +16,6 @@ const CastList = ({ castMovie }) => {
     <CastListBox>
       {castMovie.map(({ cast_id, name, profile_path }) => (
         <CastItem key={cast_id}>
-          <CastItemName>{name}</CastItemName>
           <ProfilePath
             src={
               profile_path ? `${imageUrl}${profile_path}` : profileDefaultPath
@@ -24,6 +23,7 @@ const CastList = ({ castMovie }) => {
             alt={name}
             width="100px"
           />
+          <CastItemName>{name}</CastItemName>
         </CastItem>
       ))}
     </CastListBox>
@@ -32,12 +32,16 @@ const CastList = ({ castMovie }) => {
 
 export default CastList;
 
+CastList.defaultProps = {
+  castMovie: [],
+};
+
 CastList.propTypes = {
-  items: PropTypes.arrayOf(
+  castMovie: PropTypes.arrayOf(
     PropTypes.shape({
       cast_id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      profile_path: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
     })
   ),
 };

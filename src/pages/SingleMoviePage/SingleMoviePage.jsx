@@ -36,8 +36,8 @@ const MovieDetails = () => {
         }
         setMovie(response);
       } catch (response) {
-        setError(response.data.message);
-        console.log(response.data.message);
+        // setError(response.data.message);
+        // console.log(response.data.message);
       } finally {
         setIsLoading(false);
       }

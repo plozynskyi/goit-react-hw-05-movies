@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import HomeMoviesItem from 'components/HomeMoviesItem/HomeMoviesItem';
 
@@ -26,4 +26,13 @@ HomeMoviesList.defaultProps = {
   movies: [],
 };
 
-HomeMoviesList.propTypes = {};
+HomeMoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      name: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      poster: PropTypes.string.isRequired,
+    })
+  ),
+};
