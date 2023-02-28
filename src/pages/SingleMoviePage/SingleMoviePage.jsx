@@ -12,7 +12,7 @@ import {
 } from './single-movie-page.styled';
 import Loader from 'shared/Loader/Loader';
 
-// import { routes } from 'routes';
+import { routes } from 'routes';
 
 import { getMovieById } from 'shared/services/movies-api';
 import Section from 'components/Section/Section';
@@ -62,20 +62,17 @@ const SingleMoviePage = () => {
         <MovieDetails movie={movie} />
         <LinkList>
           <LinkListItem>
-            {/* <LinkElem to={routes.CAST} state={{ from }}> */}
-            <LinkElem to={`/movies/${movieId}/cast`} state={{ from }}>
+            <LinkElem to={routes.CAST} state={{ from }}>
               Cast
             </LinkElem>
           </LinkListItem>
-
           <LinkListItem>
-            {/* <LinkElem to={routes.REVIEWS} state={{ from }}> */}
-            <LinkElem to={`/movies/${movieId}/reviews`} state={{ from }}>
+            <LinkElem to={routes.REVIEWS} state={{ from }}>
               Reviews
             </LinkElem>
           </LinkListItem>
         </LinkList>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense>
           <Outlet />
         </Suspense>
       </SingleMovieBox>
