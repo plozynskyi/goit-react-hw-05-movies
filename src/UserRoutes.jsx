@@ -5,7 +5,7 @@ import { routes } from 'routes';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('pages/MoviesPage/MoviesPage'));
-const MovieDetails = lazy(() =>
+const SingleMoviePage = lazy(() =>
   import('pages/SingleMoviePage/SingleMoviePage')
 );
 const SingleMovieCastPage = lazy(() =>
@@ -16,13 +16,14 @@ const SingleMovieReviewPage = lazy(() =>
 );
 
 const UserRoutes = () => {
-  const { MOVIES, MOVIESDETAILS, CAST, REVIEWS } = routes;
+  const { HOME, MOVIES, MOVIESDETAILS, CAST, REVIEWS } = routes;
 
   return (
     <Suspense fallback={<p>...loading</p>}>
       <Routes>
+        <Route path={HOME} element={<HomePage />} />
         <Route path={MOVIES} element={<MoviesPage />} />
-        <Route path={MOVIESDETAILS} element={<MovieDetails />}>
+        <Route path={MOVIESDETAILS} element={<SingleMoviePage />}>
           <Route path={CAST} element={<SingleMovieCastPage />} />
           <Route path={REVIEWS} element={<SingleMovieReviewPage />} />
         </Route>

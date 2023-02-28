@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-const Header = styled.header``;
+const Header = styled.div``;
 
 const Navigation = styled.ul`
   display: flex;

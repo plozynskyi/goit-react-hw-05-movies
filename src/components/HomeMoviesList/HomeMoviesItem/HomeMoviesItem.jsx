@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useLocation } from 'react-router-dom';
-import { routes } from '../../routes';
+import { routes } from '../../../routes';
 import {
   MovieLink,
   MoviesItem,

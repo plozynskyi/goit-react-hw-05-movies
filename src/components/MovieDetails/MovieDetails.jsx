@@ -5,10 +5,11 @@ import {
   MovieInfoBox,
   MovieTitle,
   MoviePoster,
+  MovieInfoText,
   MovieInfo,
 } from './movie-details.styled';
 
-const SingleMoviePage = ({ movie }) => {
+const MovieDetails = ({ movie }) => {
   const {
     poster_path,
     original_title,
@@ -41,34 +42,34 @@ const SingleMoviePage = ({ movie }) => {
         <MovieTitle href={homepage} target="_blank" rel="noopener noreferrer">
           {original_title}
         </MovieTitle>
-        <p>
+        <MovieInfoText>
           <MovieInfo>User Score - </MovieInfo>
           {Number(vote_average).toFixed(2)} %
-        </p>
-        <p>
+        </MovieInfoText>
+        <MovieInfoText>
           <MovieInfo>Overview:</MovieInfo> {overview}
-        </p>
-        <p>
+        </MovieInfoText>
+        <MovieInfoText>
           <MovieInfo>Genres:</MovieInfo> {genresList}
-        </p>
-        <p>
+        </MovieInfoText>
+        <MovieInfoText>
           <MovieInfo>Status:</MovieInfo> {status}
-        </p>
-        <p>
+        </MovieInfoText>
+        <MovieInfoText>
           <MovieInfo>Release date:</MovieInfo> {release_date}
-        </p>
+        </MovieInfoText>
       </MovieInfoBox>
     </Wrapper>
   );
 };
 
-export default SingleMoviePage;
+export default MovieDetails;
 
-SingleMoviePage.defaultProps = {
+MovieDetails.defaultProps = {
   movies: [],
 };
 
-SingleMoviePage.propTypes = {
+MovieDetails.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

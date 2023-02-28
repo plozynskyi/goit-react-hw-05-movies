@@ -78,7 +78,6 @@ const MoviesPage = () => {
         {isLoading && <Loader />}
         {error && <p>Oops. Something goes wrong. Please try again.</p>}
         {!noResults && <HomeMoviesList movies={movies} />}
-
         {loadMoreButton && (
           <Button onClick={loadMore} type="button">
             loadMore

@@ -1,21 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Link,
-  Outlet,
-  useParams,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
+import { Outlet, useParams, useNavigate, useLocation } from 'react-router-dom';
 
-import SingleMoviePage from 'components/MovieDetails/MovieDetails';
-import { SingleMovieBox } from './single-movie-page.styled';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
+import {
+  SingleMovieBox,
+  LinkList,
+  LinkListItem,
+  LinkElem,
+} from './single-movie-page.styled';
 import Loader from 'shared/Loader/Loader';
+
+// import { routes } from 'routes';
 
 import { getMovieById } from 'shared/services/movies-api';
 import Section from 'components/Section/Section';
 import Button from 'shared/Button/Button';
 
-const MovieDetails = () => {
+const SingleMoviePage = () => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -56,23 +57,25 @@ const MovieDetails = () => {
         </Button>
         {error && <p>Oops. Something goes wrong. Please try again.</p>}
         {!noResults && <p>There is no information. Please try again.</p>}
-        <SingleMoviePage movie={movie} />
-        <ul>
-          <li>
-            <Link to="cast" state={{ from }}>
+        <MovieDetails movie={movie} />
+        <LinkList>
+          <LinkListItem>
+            {/* <LinkElem to={routes.CAST} state={{ from }}> */}
+            <LinkElem to={`/movies/${movieId}/cast`} state={{ from }}>
               Cast
-            </Link>
-          </li>
-          <li>
-            <Link to="reviews" state={{ from }}>
+            </LinkElem>
+          </LinkListItem>
+          <LinkListItem>
+            {/* <LinkElem to={routes.REVIEWS} state={{ from }}> */}
+            <LinkElem to={`/movies/${movieId}/reviews`} state={{ from }}>
               Reviews
-            </Link>
-          </li>
-        </ul>
+            </LinkElem>
+          </LinkListItem>
+        </LinkList>
         <Outlet />
       </SingleMovieBox>
     </Section>
   );
 };
 
-export default MovieDetails;
+export default SingleMoviePage;

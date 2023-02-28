@@ -12,7 +12,9 @@ const Navbar = () => {
   ));
   return (
     <Header>
-      <Navigation>{elements}</Navigation>
+      <nav>
+        <Navigation>{elements}</Navigation>
+      </nav>
     </Header>
   );
 };

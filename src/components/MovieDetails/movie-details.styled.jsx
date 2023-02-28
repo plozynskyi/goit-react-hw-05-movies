@@ -9,6 +9,9 @@ const Wrapper = styled.div`
 const MovieTitle = styled.a`
   font-size: 24px;
   font-weight: bold;
+  &:hover {
+    color: coral;
+  }
 `;
 
 const MoviePoster = styled.img`
@@ -20,7 +23,17 @@ const MovieInfoBox = styled.div`
   width: 500px;
 `;
 
+const MovieInfoText = styled.p``;
+
 const MovieInfo = styled.span`
   font-weight: bold;
 `;
-export { Wrapper, MovieInfoBox, MovieTitle, MoviePoster, MovieInfo };
+
+export {
+  Wrapper,
+  MovieInfoBox,
+  MovieTitle,
+  MoviePoster,
+  MovieInfoText,
+  MovieInfo,
+};

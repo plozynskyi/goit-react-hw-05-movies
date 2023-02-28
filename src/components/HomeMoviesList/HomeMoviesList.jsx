@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import HomeMoviesItem from 'components/HomeMoviesItem/HomeMoviesItem';
+import HomeMoviesItem from 'components/HomeMoviesList/HomeMoviesItem/HomeMoviesItem';
 
 import { HomeMovies } from './home-movies.styled';
 
