@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 
 import items from './items';
 
-import { Header, Navigation, LinkItem, LinkElem } from './Navbar.styled';
+import {
+  Header,
+  Navigation,
+  NavigationList,
+  LinkItem,
+  LinkElem,
+} from './Navbar.styled';
 
 const Navbar = () => {
   const elements = items.map(({ id, text, link }) => (
@@ -12,9 +18,9 @@ const Navbar = () => {
   ));
   return (
     <Header>
-      <nav>
-        <Navigation>{elements}</Navigation>
-      </nav>
+      <Navigation>
+        <NavigationList>{elements}</NavigationList>
+      </Navigation>
     </Header>
   );
 };

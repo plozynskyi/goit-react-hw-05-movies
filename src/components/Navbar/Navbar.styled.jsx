@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-const Header = styled.div``;
+const Header = styled.header``;
 
-const Navigation = styled.ul`
+const Navigation = styled.nav``;
+
+const NavigationList = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -27,4 +29,4 @@ const LinkElem = styled(NavLink)`
   }
 `;
 
-export { Header, Navigation, LinkItem, LinkElem };
+export { Header, Navigation, NavigationList, LinkItem, LinkElem };

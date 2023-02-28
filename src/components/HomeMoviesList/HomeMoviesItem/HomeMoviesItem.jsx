@@ -21,6 +21,7 @@ const HomeMoviesItem = ({ title, name, id, poster }) => {
           <MoviePoster
             src={poster ? `${imageUrl}${poster}` : defaultPoster}
             alt={title || name}
+            loading="lazy"
           />
           <MovieTitle>{title || name}</MovieTitle>
         </MovieLink>

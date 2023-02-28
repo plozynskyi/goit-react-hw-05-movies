@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Outlet, useParams, useNavigate, useLocation } from 'react-router-dom';
 
+import { Suspense } from 'react';
+
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import {
   SingleMovieBox,
@@ -65,6 +67,7 @@ const SingleMoviePage = () => {
               Cast
             </LinkElem>
           </LinkListItem>
+
           <LinkListItem>
             {/* <LinkElem to={routes.REVIEWS} state={{ from }}> */}
             <LinkElem to={`/movies/${movieId}/reviews`} state={{ from }}>
@@ -72,7 +75,9 @@ const SingleMoviePage = () => {
             </LinkElem>
           </LinkListItem>
         </LinkList>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </SingleMovieBox>
     </Section>
   );
